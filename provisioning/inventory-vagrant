@@ -1,0 +1,5 @@
+[nodes]
+localhost
+
+[balancers]
+localhost
