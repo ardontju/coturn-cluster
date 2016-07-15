@@ -1,0 +1,18 @@
+---
+- name: Install coturn
+  apt: name=coturn state=latest update_cache=yes
+
+- name: Create turnserver config directory
+  file: path=/opt/turnserver state=directory
+
+- name: Install turnserver node config
+  template: src=turnserver-node.conf dest=/opt/turnserver/turnserver-node.conf
+
+- name: Install turnserver node service file
+  template: src=turnserver-node@.service dest=/etc/systemd/system/turnserver-node@.service
+
+- name: reload systemd
+  command: systemctl daemon-reload
+
+- name: start turnserver node 1
+  service: name=turnserver-node@1 state=started

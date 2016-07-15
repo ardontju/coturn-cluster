@@ -1,3 +1,0 @@
----
-- name: Install coturn
-  apt: name=coturn state=latest update_cache=yes

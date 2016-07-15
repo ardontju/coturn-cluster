@@ -3,10 +3,10 @@
   connection: local
   sudo: yes
   roles:
-      - coturn-node
+      - turnserver-node
 
 - hosts: balancers
   connection: local
   sudo: yes
   roles:
-      - coturn-balancer
+      - turnserver-balancer

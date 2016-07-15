@@ -9,4 +9,10 @@
   template: src=turnserver-balancer.conf dest=/opt/turnserver/turnserver-balancer.conf
 
 - name: Install turnserver balancer service file
-  template: turnserver-balancer.service dest=/ets/systemd/system/turnserver-balancer.service
+  template: src=turnserver-balancer.service dest=/etc/systemd/system/turnserver-balancer.service
+
+- name: reload systemd
+  command: systemctl daemon-reload
+
+- name: start turnserver balancer
+  service: name=turnserver-balancer state=started

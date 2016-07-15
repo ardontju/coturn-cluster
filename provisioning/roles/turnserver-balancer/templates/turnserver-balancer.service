@@ -1,0 +1,10 @@
+[Unit]
+Description=Coturn balancer
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/turnserver -c /opt/turnserver/turnserver-balancer.conf
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
