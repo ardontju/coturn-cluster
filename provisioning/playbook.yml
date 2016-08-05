@@ -1,12 +1,10 @@
 ---
 - hosts: nodes
   connection: local
-  sudo: yes
   roles:
       - turnserver-node
 
 - hosts: balancers
   connection: local
-  sudo: yes
   roles:
       - turnserver-balancer
